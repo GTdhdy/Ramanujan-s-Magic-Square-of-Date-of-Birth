@@ -1,0 +1,190 @@
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+<html>
+
+<head>
+
+<Title>Math Expo</title>
+
+<style>
+
+table, th, td {
+  border:5px solid rgba(255, 0, 0, 1);
+  background-color: rgb(255,255,255);
+}
+
+body {
+  background-image: url("raman1.jpeg");
+  background-repeat: repeat-y;
+}
+
+#heading {
+  border-style: solid;
+  border-width: 5px;
+  border-color: black;
+  background-color: rgb(255,255,255);
+}
+
+#magical {
+  color: blue;
+  border:1px solid rgb(255, 0, 0);
+  background-color: rgb(255, 255, 255);
+  width: 40px;
+}
+
+#text {
+  color: white;
+  background-color: black;
+  font-size: 20px;
+  width: 200px;
+  
+}
+
+input {
+  border:3px solid black;
+  color: red;
+  background-color: rgb(185, 207, 255);
+}
+
+#hint {
+  position: absolute;
+  right: 60px;
+  top: 220px;
+  border:3px solid black;
+  color: blue;
+  background-color: rgb(255, 255, 136);
+  width: 220px;
+  height: 220px;
+}
+
+p.hintH {
+ font-size: 30px;
+ color: red;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<center>
+
+<h1 id = "heading" style = "color: rgba(255, 0, 0, 1)">Ramanujan's Magic Square of Date of Birth</h1>
+
+<br><br><input type="number" min="1" max="99" id = "date" placeholder = "DD">
+<input type="number" min="0" max="99" id = "month" placeholder = "MM">
+<input type="number" min="0" max="99" id = "year1" placeholder = "CC">
+<input type="number" min="0" max="99" id = "year2" placeholder = "YY">
+
+<br><br><input type="submit" value="Generate" onclick = "toCalc()">
+
+<br><br><table cellpadding="25" cellspacing="0" style="border-collapse:collapse" >
+
+	<tr>
+
+		<td id ="DD">-</td>
+		<td id ="MM">-</td>
+		<td id ="CC">-</td>
+		<td id ="YY">-</td>		
+
+	</tr>
+
+	<tr>
+
+		<td id ="YY+1">-</td>
+		<td id ="CC-1">-</td>
+		<td id ="MM-3">-</td>
+		<td id ="DD+3">-</td>		
+
+	</tr>
+
+
+	<tr>
+
+		<td id ="MM-2">-</td>
+		<td id ="DD+2">-</td>
+		<td id ="YY+2">-</td>
+		<td id ="CC-2">-</td>		
+
+	</tr>
+
+
+	<tr>
+
+		<td id ="CC+1">-</td>
+		<td id ="YY-1">-</td>
+		<td id ="DD+1">-</td>
+		<td id ="MM-1">-</td>		
+
+	</tr>
+
+
+</table>
+
+<br><p id = "text">Magical Number:<p id = "magical">-</p></p>
+
+<label id = "hint">
+
+<p class = "hintH">Hint!</p>
+Date of Birth - 22/12/1887 <br><br>
+DD - 22 <br>
+MM - 12 <br>
+CC - 18 <br>
+YY - 87 <br>
+
+</label>
+
+</center>
+
+<script>
+
+function toCalc() {
+
+var dd = document.getElementById("date").value;
+	document.getElementById("DD").innerHTML = dd;
+	dd++;
+	document.getElementById("DD+1").innerHTML = dd;
+	dd++;
+	document.getElementById("DD+2").innerHTML = dd;
+	dd++;
+	document.getElementById("DD+3").innerHTML = dd;
+	dd--;
+	dd--;
+	dd--;
+var mm = document.getElementById("month").value;
+	document.getElementById("MM").innerHTML = mm;
+	document.getElementById("MM-3").innerHTML = mm-3;
+	document.getElementById("MM-2").innerHTML = mm-2;
+	document.getElementById("MM-1").innerHTML = mm-1;
+
+var cc = document.getElementById("year1").value;
+	document.getElementById("CC").innerHTML = cc;
+	document.getElementById("CC-1").innerHTML = cc-1;
+	document.getElementById("CC-2").innerHTML = cc-2;
+	cc++;
+	document.getElementById("CC+1").innerHTML = cc;
+	cc--;
+
+var yy = document.getElementById("year2").value;
+	document.getElementById("YY").innerHTML = yy;
+	document.getElementById("YY-1").innerHTML = yy-1;
+	yy++;
+	document.getElementById("YY+1").innerHTML = yy;
+	yy++;
+	document.getElementById("YY+2").innerHTML = yy;
+	yy--;
+	yy--;
+
+let add = parseInt(dd) + parseInt(mm) + parseInt(cc) + parseInt(yy);
+	document.getElementById("magical").innerHTML = add;
+
+}
+
+</script>
+
+</body>
+
+</html>
